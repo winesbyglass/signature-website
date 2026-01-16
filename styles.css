@@ -1,15 +1,14 @@
 /* styles.css */
 :root{
-  /* Blue palette with white text */
-  --bg: #062a4d;
-  --text: #ffffff;
-  --muted: rgba(255,255,255,.78);
-  --line: rgba(255,255,255,.16);
-  --soft: rgba(255,255,255,.10);
+  --bg: #f5f9fd;               /* very light blue background */
+  --text: #0b2a44;             /* dark blue text */
+  --muted: #5b6f82;            /* muted blue-grey */
+  --line: rgba(11,42,68,.12);
+  --soft: rgba(11,42,68,.06);
 
   --container: 1120px;
   --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,.22);
+  --shadow: 0 10px 30px rgba(11,42,68,.08);
 }
 
 *{ box-sizing:border-box; }
