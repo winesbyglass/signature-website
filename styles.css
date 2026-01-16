@@ -1,225 +1,29 @@
 /* =========================
-   Design tokens
+   Signature Payroll theme
+   Blue + white, matched to existing HTML classes
    ========================= */
+
 :root{
-  --primary:#0b3c5d;
+  --bg:#ffffff;
+
   --text:#0f172a;
   --muted:#475569;
-  --line:#e5e7eb;
-  --bg:#ffffff;
+
+  --primary:#0b3c5d;
+  --primary-soft:rgba(11,60,93,.08);
+
+  --line:rgba(15,23,42,.12);
+  --soft:rgba(15,23,42,.06);
+
+  --container:1120px;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(2,6,23,.06);
 }
 
-/* =========================
-   Reset & base
-   ========================= */
-*{
-  box-sizing:border-box;
-}
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
 body{
   margin:0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-
-a{
-  color:var(--primary);
-  text-decoration:none;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-/* =========================
-   Layout helpers
-   ========================= */
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:40px 20px;
-}
-
-.site-header{
-  border-bottom:1px solid var(--line);
-  background:#ffffff;
-}
-
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-}
-
-/* =========================
-   Brand (dot logo version)
-   ========================= */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:600;
-  color:var(--text);
-}
-
-.brand-mark{
-  width:10px;
-  height:10px;
-  border-radius:999px;
-  background:var(--primary);
-}
-
-.brand-name{
-  letter-spacing:-0.02em;
-}
-
-/* =========================
-   Navigation
-   ========================= */
-.nav{
-  display:flex;
-  gap:8px;
-}
-
-.nav-link{
-  padding:8px 14px;
-  border-radius:999px;
-  color:var(--text);
-  font-size:14px;
-}
-
-.nav-link:hover{
-  background:#f1f5f9;
-}
-
-.nav-link.is-active{
-  background:#e6f0f7;
-  color:var(--primary);
-  font-weight:600;
-}
-
-/* =========================
-   Buttons
-   ========================= */
-.btn{
-  padding:10px 18px;
-  border:1px solid var(--primary);
-  border-radius:999px;
-  background:transparent;
-  color:var(--primary);
-  font-size:14px;
-  font-weight:500;
-}
-
-.btn:hover{
-  background:#f0f6fa;
-}
-
-.btn-primary{
-  background:var(--primary);
-  color:#ffffff;
-}
-
-.btn-primary:hover{
-  background:#08324d;
-}
-
-/* =========================
-   Typography
-   ========================= */
-h1{
-  font-size:42px;
-  line-height:1.2;
-  letter-spacing:-0.02em;
-  margin-bottom:16px;
-}
-
-h2{
-  font-size:28px;
-  margin-bottom:16px;
-  letter-spacing:-0.01em;
-}
-
-.lead{
-  font-size:18px;
-  color:var(--muted);
-  max-width:720px;
-}
-
-.muted{
-  color:var(--muted);
-}
-
-/* =========================
-   Sections
-   ========================= */
-section{
-  margin-bottom:60px;
-}
-
-.hero{
-  padding-top:40px;
-}
-
-/* =========================
-   Cards & grids
-   ========================= */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-  gap:24px;
-}
-
-.card{
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-  background:#ffffff;
-}
-
-.stack{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-/* =========================
-   Forms
-   ========================= */
-.form{
-  max-width:420px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-input,
-textarea{
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  font-size:14px;
-  font-family:inherit;
-}
-
-input:focus,
-textarea:focus{
-  outline:none;
-  border-color:var(--primary);
-}
-
-/* =========================
-   Footer
-   ========================= */
-.site-footer{
-  border-top:1px solid var(--line);
-  margin-top:80px;
-  padding:20px 0;
-  font-size:14px;
-  color:var(--muted);
-}
+  color:var(
