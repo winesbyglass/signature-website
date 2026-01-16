@@ -1,129 +1,56 @@
-<!-- contact.html -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Signature Payroll</title>
-  <meta name="description" content="Contact Signature Payroll. Email admin@signaturepayroll.com.au or send a message." />
-  <link rel="stylesheet" href="styles.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Signature Payroll home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Signature Payroll</span>
-      </a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand brand-stack" href="index.html">
+      <span class="brand-top">Signature</span>
+      <svg class="brand-line" viewBox="0 0 140 10"><line x1="2" y1="5" x2="138" y2="5"></line></svg>
+      <span class="brand-bottom">Payroll</span>
+    </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="careers.html">Careers</a>
-        <a class="nav-link is-active" href="contact.html">Contact</a>
-      </nav>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
 
-      <a class="btn btn-primary" href="contact.html">Contact us</a>
-    </div>
-  </header>
+    <a class="btn" href="contact.html">Contact us</a>
+  </div>
+</header>
 
-  <main id="main">
-    <section class="page-head">
-      <div class="container">
-        <p class="eyebrow">Contact</p>
-        <h1 class="h1">Let us know what you need.</h1>
-        <p class="lead">
-          Email <a class="inline-link" href="mailto:admin@signaturepayroll.com.au">admin@signaturepayroll.com.au</a> or send us a message.
-        </p>
-      </div>
-    </section>
+<main class="container">
+  <h1>Contact</h1>
 
-    <section class="section">
-      <div class="container">
-        <div class="grid-2">
-          <div class="card">
-            <h2 class="h2">Send a message</h2>
+  <p class="lead">
+    Email admin@signaturepayroll.com.au or send us a message.
+  </p>
 
-            <!--
-              This form is static and will not send anywhere by itself on GitHub Pages.
-              Two free options:
-              1) Use FormSubmit.co by replacing YOUR_EMAIL below with your email.
-                 Example action: https://formsubmit.co/admin@signaturepayroll.com.au
-              2) Keep action="#" and rely on the email link above.
-            -->
+  <form class="form" action="https://formsubmit.co/admin@signaturepayroll.com.au" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="Full name" placeholder="Full name" required>
+    <input type="email" name="Email" placeholder="Email" required>
+    <textarea name="Message" placeholder="Message" required></textarea>
+    <button class="btn primary" type="submit">Send</button>
+  </form>
+</main>
 
-            <form class="form" method="post" action="https://formsubmit.co/admin@signaturepayroll.com.au">
-              <input type="hidden" name="_subject" value="Website enquiry - Signature Payroll" />
-              <input type="hidden" name="_captcha" value="false" />
+<footer class="site-footer">
+  <div class="container">
+    <p>Email <a href="mailto:admin@signaturepayroll.com.au">admin@signaturepayroll.com.au</a></p>
+  </div>
+</footer>
 
-              <label class="field">
-                <span class="label">Full name</span>
-                <input class="input" type="text" name="full_name" autocomplete="name" required />
-              </label>
-
-              <label class="field">
-                <span class="label">Email</span>
-                <input class="input" type="email" name="email" autocomplete="email" required />
-              </label>
-
-              <label class="field">
-                <span class="label">Message</span>
-                <textarea class="textarea" name="message" rows="6" required></textarea>
-              </label>
-
-              <button class="btn btn-primary" type="submit">Send</button>
-              <p class="small hint">
-                If you prefer email, write to admin@signaturepayroll.com.au.
-              </p>
-            </form>
-          </div>
-
-          <div class="card">
-            <h2 class="h2">Contact details</h2>
-            <p class="subhead">Email admin@signaturepayroll.com.au or send us a message.</p>
-
-            <div class="divider"></div>
-
-            <p class="small">
-              Email:
-              <a class="inline-link" href="mailto:admin@signaturepayroll.com.au">admin@signaturepayroll.com.au</a>
-            </p>
-
-            <p class="small">
-              Response time: Add your preferred response timeframe here.
-            </p>
-
-            <p class="small">
-              Location: Add your city or service area here.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <p class="footer-brand">Signature Payroll</p>
-        <p class="small">Payroll services with clarity and care.</p>
-      </div>
-
-      <div class="footer-links" aria-label="Footer links">
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="careers.html">Careers</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div class="footer-contact">
-        <p class="small">Email: <a href="mailto:admin@signaturepayroll.com.au">admin@signaturepayroll.com.au</a></p>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
-
