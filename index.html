@@ -1,27 +1,175 @@
-<!DOCTYPE html>
-<html>
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My Website</title>
-  <meta charset="UTF-8">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f7f7f7;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      max-width: 600px;
-      line-height: 1.6;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signature Payroll</title>
+  <meta name="description" content="Signature Payroll provides reliable, accurate payroll services with a calm, professional approach." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>
-    This is my first website. I built it from scratch and it is hosted for free.
-  </p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Signature Payroll home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Signature Payroll</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-link is-active" href="index.html">Home</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="careers.html">Careers</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="contact.html">Contact us</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Payroll done with precision</p>
+          <h1 class="h1">Modern payroll services that feel calm, clear, and dependable.</h1>
+          <p class="lead">
+            We support organisations with accurate payroll processing, compliance support, and practical guidance.
+            Built for consistency, confidentiality, and trust.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="contact.html">Contact us</a>
+            <a class="btn btn-ghost" href="services.html">View services</a>
+          </div>
+
+          <div class="hero-proof">
+            <div class="proof-item">
+              <p class="proof-title">Reliable processing</p>
+              <p class="proof-text">Clear checks and calm execution.</p>
+            </div>
+            <div class="proof-item">
+              <p class="proof-title">Compliance minded</p>
+              <p class="proof-text">Designed to reduce risk.</p>
+            </div>
+            <div class="proof-item">
+              <p class="proof-title">Human support</p>
+              <p class="proof-text">Practical advice when it matters.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="At a glance">
+          <div class="card">
+            <p class="card-kicker">At a glance</p>
+            <ul class="list">
+              <li>Payroll processing and pay runs</li>
+              <li>Leave and entitlement support</li>
+              <li>Reporting and reconciliations</li>
+              <li>Implementation and transition support</li>
+            </ul>
+            <div class="divider"></div>
+            <p class="small">
+              Start with a short call, then we map scope and timelines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">Services</h2>
+          <p class="subhead">A focused set of services for dependable payroll outcomes.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3 class="h3">Payroll processing</h3>
+            <p>Pay runs, review checkpoints, and clean documentation with clear ownership.</p>
+            <a class="text-link" href="services.html#payroll-processing">Learn more</a>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Compliance support</h3>
+            <p>Support for reporting, audits, and routine compliance checks across payroll activities.</p>
+            <a class="text-link" href="services.html#compliance-support">Learn more</a>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Transitions and setup</h3>
+            <p>Onboarding, system changes, and handovers with steady project structure.</p>
+            <a class="text-link" href="services.html#transitions">Learn more</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">Testimonials</h2>
+          <p class="subhead">Short, honest feedback. Add real names and roles when ready.</p>
+        </div>
+
+        <div class="grid-3">
+          <figure class="quote">
+            <blockquote>
+              Consistent processing and clear communication. We always knew where things stood.
+            </blockquote>
+            <figcaption>Client testimonial, placeholder</figcaption>
+          </figure>
+
+          <figure class="quote">
+            <blockquote>
+              Calm support during a transition period. Clean handover and no surprises.
+            </blockquote>
+            <figcaption>Client testimonial, placeholder</figcaption>
+          </figure>
+
+          <figure class="quote">
+            <blockquote>
+              Practical advice, strong attention to detail, and dependable delivery.
+            </blockquote>
+            <figcaption>Client testimonial, placeholder</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container callout">
+        <div>
+          <h2 class="h2">Ready to talk?</h2>
+          <p class="subhead">Email admin@signaturepayroll.com.au or send us a message.</p>
+        </div>
+        <a class="btn btn-primary" href="contact.html">Contact us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Signature Payroll</p>
+        <p class="small">Payroll services with clarity and care.</p>
+      </div>
+
+      <div class="footer-links" aria-label="Footer links">
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-contact">
+        <p class="small">Email: <a href="mailto:admin@signaturepayroll.com.au">admin@signaturepayroll.com.au</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
