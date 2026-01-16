@@ -61,17 +61,49 @@ a:hover{ text-decoration:underline; text-underline-offset: 4px; }
   display:flex;
   align-items:center;
   gap:12px;
+  text-decoration:none;
 }
-.brand-mark{
-  width:14px;
-  height:14px;
-  border-radius:999px;
-  background:var(--text);
-  display:inline-block;
+
+.brand-mark{ display:none; }
+.brand-name{ display:none; }
+
+.brand-logo{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1;
+  gap:6px;
 }
-.brand-name{
-  font-weight:600;
+
+.brand-top,
+.brand-bottom{
+  font-weight:700;
   letter-spacing:-0.02em;
+  font-size:14px;
+}
+
+.brand-line{
+  width:92px;
+  height:10px;
+  display:block;
+}
+
+.brand-line line{
+  stroke: var(--text);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 
 .nav{
