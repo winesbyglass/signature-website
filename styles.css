@@ -692,6 +692,11 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   }
 }
 
+/* Center only Leadership Team title */
+.section .container h2.h2 {
+  text-align: center;
+}
+
 /* ===== Careers Page ===== */
 
 .careers-grid {
