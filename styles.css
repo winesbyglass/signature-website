@@ -867,17 +867,15 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 }
 
 .team-image {
-  width: 100%;
+  width: 50%;                 /* 👈 THIS halves the size */
   border-radius: 16px;
   overflow: hidden;
   background: #f1f5f9;
-  margin-bottom: 18px;
+  margin: 0 auto 18px;        /* 👈 centers the image */
 }
 
 .team-image img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0;
-  padding: 0;
 }
