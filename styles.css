@@ -5,9 +5,7 @@
   --muted: #475569;
   --line: rgba(15,23,42,.12);
   --soft: rgba(31,79,216,.08);
-
   --primary: #1f4fd8;
-
   --container: 1120px;
   --radius: 16px;
   --shadow: 0 10px 30px rgba(15,23,42,.08);
@@ -47,10 +45,10 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 .site-header{
   position:sticky;
   top:0;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(10px);
+  background:#0D3DA6;
   border-bottom:1px solid var(--line);
   z-index:50;
+  overflow:visible;
 }
 
 .header-inner{
@@ -58,13 +56,25 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   align-items:center;
   justify-content:space-between;
   gap:16px;
-  padding:16px 0;
+  height:100px;
+  padding:0;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:12px;
+  margin-left:-24px;
+}
+
+.logo{
+  height:135px;
+  width:auto;
+  display:block;
+  transform:scale(1.2);
+  transform-origin:left center;
+  margin-top:-20px;
+  margin-bottom:-20px;
 }
 
 .brand-mark{
@@ -83,25 +93,27 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 .nav{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:18px;
   flex-wrap:wrap;
 }
 
 .nav-link{
-  color:var(--muted);
-  font-size:14px;
-  padding:8px 10px;
+  color:#ffffff;
+  font-size:16px;
+  font-weight:600;
+  padding:10px 16px;
   border-radius:999px;
 }
 
 .nav-link:hover{
-  background:var(--soft);
+  background:rgba(255,255,255,0.35);
+  color:#ffffff;
   text-decoration:none;
 }
 
 .nav-link.is-active{
-  color:var(--primary);
-  background:var(--soft);
+  background:rgba(255,255,255,0.25);
+  color:#ffffff;
 }
 
 .btn{
@@ -122,6 +134,20 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   background:var(--primary);
   color:#fff;
   border-color:var(--primary);
+}
+
+.site-header .btn-primary{
+  background:#ffffff;
+  color:#0D3DA6;
+  font-size:16px;
+  font-weight:700;
+  padding:12px 22px;
+}
+
+.site-header .btn-primary:hover{
+  background:#dfe8ff;
+  color:#0D3DA6;
+  opacity:1;
 }
 
 .btn-primary:hover{ opacity:.92; }
@@ -256,10 +282,6 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 
 .list li{ margin:6px 0; }
 
-/* =========================
-   Testimonials tidy-up
-   (Works with: .testimonials-grid + .testimonial markup)
-   ========================= */
 .testimonials-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -290,7 +312,6 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   color:var(--muted);
   font-size:13px;
 }
-/* ========================= */
 
 .site-footer{
   padding:34px 0;
@@ -317,91 +338,4 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .testimonials-grid{ grid-template-columns:1fr; }
   .h1{ font-size:36px; }
   .nav{ display:none; }
-}
-
-/* ===== FINAL HEADER + LOGO FIX (LOCKED LAYOUT) ===== */
-
-.site-header {
-  background: #0D3DA6;
-  padding: 0;
-  overflow: visible;
-}
-
-/* keep header height fixed */
-.site-header .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0;
-}
-
-/* align header with body text */
-.site-header .container {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/* LOGO — slightly smaller but visually larger */
-.logo {
-  height: 135px; /* ~0.9x */
-  width: auto;
-  display: block;
-
-  /* this makes logo bigger WITHOUT increasing header height */
-  transform: scale(1.2);
-  transform-origin: left center;
-
-  /* vertically center inside fixed header */
-  margin-top: -20px;
-  margin-bottom: -20px;
-}
-
-/* NAV */
-.site-header .nav {
-  gap: 18px;
-}
-
-.site-header .nav-link {
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 16px;
-  border-radius: 999px;
-}
-
-.site-header .nav-link:hover {
-  background: rgba(255,255,255,0.35);
-  color: #ffffff;
-}
-
-.site-header .nav-link.is-active {
-  background: rgba(255,255,255,0.25);
-  color: #ffffff;
-}
-
-/* BUTTON */
-.site-header .btn-primary {
-  background: #ffffff;
-  color: #0D3DA6;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 12px 22px;
-}
-
-.site-header .btn-primary:hover {
-  background: #dfe8ff;
-}
-
-/* ===== FINAL LEFT ALIGN FIX ===== */
-
-/* remove default container padding only for header */
-.site-header .container {
-  padding-left: 0;
-  padding-right: 24px;
-}
-
-/* shift logo to align with body text */
-.site-header .brand {
-  margin-left: 24px;
 }
