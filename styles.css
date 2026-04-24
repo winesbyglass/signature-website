@@ -339,3 +339,16 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .h1{ font-size:36px; }
   .nav{ display:none; }
 }
+
+/* ===== FORCE HEADER FULL WIDTH ALIGNMENT ===== */
+
+.site-header .container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+.site-header .header-inner {
+  padding-left: 24px;
+}
