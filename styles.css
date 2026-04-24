@@ -459,3 +459,26 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
     grid-template-columns: 1fr;
   }
 }
+
+.news-card {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+}
+
+.news-page-button {
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  background: #111111;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.news-page-button.muted {
+  background: #666666;
+}
