@@ -392,3 +392,16 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 .site-header .btn-primary:hover {
   background: #dfe8ff;
 }
+
+/* ===== FINAL LEFT ALIGN FIX ===== */
+
+/* remove default container padding only for header */
+.site-header .container {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+/* shift logo to align with body text */
+.site-header .brand {
+  margin-left: 24px;
+}
