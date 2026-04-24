@@ -766,3 +766,44 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Tools Page ===== */
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.tool-card {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 10px 30px rgba(15,23,42,.08);
+  transition: all 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(15,23,42,.12);
+}
+
+.tool-card h3 {
+  margin: 0 0 10px;
+}
+
+.tool-card p {
+  margin: 0;
+  color: #475569;
+}
+
+@media (max-width: 920px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
