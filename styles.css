@@ -638,9 +638,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 10px 30px rgba(15,23,42,.08);
-}
 
-.team-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
