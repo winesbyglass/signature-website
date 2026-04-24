@@ -323,56 +323,58 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 
 .site-header {
   background: #0D3DA6;
-  padding: 8px 0;
+  padding: 2px 0; /* thinner banner */
 }
 
 .site-header .header-inner {
   display: flex;
-  align-items: center;
+  align-items: center; /* vertical center */
   justify-content: space-between;
 }
 
+/* LOGO SIZE */
 .logo {
-  height: 150px;
+  height: 60px; /* balanced size */
   width: auto;
   display: block;
 }
 
+/* NAV SPACING */
 .site-header .nav {
-  gap: 14px;
+  gap: 16px;
 }
 
+/* NAV TEXT */
 .site-header .nav-link {
   color: #ffffff;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
-  padding: 12px 18px;
+  padding: 10px 16px;
   border-radius: 999px;
 }
 
+/* HOVER EFFECT (stronger) */
 .site-header .nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ACTIVE TAB */
+.site-header .nav-link.is-active {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.22);
 }
 
-.site-header .nav-link.is-active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.site-header .nav-link.is-active::after {
-  background: #ffffff;
-}
-
+/* CONTACT BUTTON */
 .site-header .btn-primary {
   background: #ffffff;
   color: #0D3DA6;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
-  padding: 14px 24px;
+  padding: 12px 22px;
 }
 
+/* BUTTON HOVER */
 .site-header .btn-primary:hover {
   background: #dfe8ff;
-  color: #0D3DA6;
 }
