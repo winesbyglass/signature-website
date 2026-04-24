@@ -318,3 +318,22 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .h1{ font-size:36px; }
   .nav{ display:none; }
 }
+
+/* ===== Logo banner update ===== */
+
+.site-header {
+  background: #0D3DA6;
+  padding: 24px;
+}
+
+.site-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
