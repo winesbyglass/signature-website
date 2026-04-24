@@ -324,7 +324,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 .site-header {
   background: #0D3DA6;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .site-header .header-inner {
@@ -335,14 +335,22 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   padding: 0;
 }
 
-.logo {
-  height: 150px;
-  width: auto;
-  display: block;
-  margin-top: -25px;
-  margin-bottom: -25px;
+/* Logo is bigger, but does NOT increase header height */
+.brand {
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 
+.logo {
+  height: 180px;
+  width: auto;
+  display: block;
+  transform: scale(1.25);
+  transform-origin: left center;
+}
+
+/* NAV */
 .site-header .nav {
   gap: 18px;
 }
@@ -365,6 +373,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   color: #ffffff;
 }
 
+/* BUTTON */
 .site-header .btn-primary {
   background: #ffffff;
   color: #0D3DA6;
