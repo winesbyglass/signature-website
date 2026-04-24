@@ -89,104 +89,88 @@
 </section>
 
 <script>
-  const newsItems = [
-    {
-      category: "Governance",
-      date: "25/09/2025",
-      title: "Woolworths and Coles Underpayments Could Top $1 Billion — A Wake-Up Call for Payroll Governance",
-      summary: "FWO probes continue as annualised salary models failed to reconcile actual hours worked.",
-      image: "assets/news-woolworths.jpg",
-      link: "news.html#woolworths-coles"
-    },
-    {
-      category: "Industry News",
-      date: "25/09/2025",
-      title: "ANZ Payroll Email Blunder Sparks Industry-Wide Concern Over Redundancy Communications",
-      summary: "Automated emails prematurely informed staff of termination before formal communication.",
-      image: "assets/news-anz.jpg",
-      link: "news.html#anz-email"
-    },
-    {
-      category: "Legislation",
-      date: "14/09/2025",
-      title: "Australia’s “Right to Disconnect” Expands to Small Business Employees",
-      summary: "Small business employees gain the legal right to refuse unreasonable after-hours contact.",
-      image: "assets/news-disconnect.jpg",
-      link: "news.html#right-to-disconnect"
-    },
-    {
-      category: "Industrial Relations",
-      date: "14/08/2025",
-      title: "Qantas Fined $90 Million for Unlawful Outsourcing of 1,820 Workers",
-      summary: "The Federal Court issued a record penalty after unlawful outsourcing during the pandemic.",
-      image: "assets/news-qantas.jpg",
-      link: "news.html#qantas"
-    },
-    {
-      category: "Payroll Compliance",
-      date: "25/07/2025",
-      title: "Superannuation Guarantee Rises to 12%: What It Means for Payroll Teams",
-      summary: "Payroll teams must apply the new 12% SG rate from July 2025 payment dates.",
-      image: "assets/news-super.jpg",
-      link: "news.html#superannuation"
-    },
-    {
-      category: "HR Technology",
-      date: "24/06/2025",
-      title: "Hungry Jack’s HR Transformation: From Spreadsheets to 24-Hour Hiring",
-      summary: "A digital HR platform helped reduce hiring time from weeks to 24 hours.",
-      image: "assets/news-hungryjacks.jpg",
-      link: "news.html#hungry-jacks"
-    },
-    {
-      category: "AI and Work",
-      date: "20/05/2025",
-      title: "AI and Employment: David Sacks Challenges the Doomsday Narrative",
-      summary: "AI may replace parts of jobs, but workers who use AI well may gain an advantage.",
-      image: "assets/news-ai.jpg",
-      link: "news.html#ai-employment"
-    },
-    {
-      category: "Underpayment",
-      date: "04/04/2025",
-      title: "Chatime Australia Penalised for Systemic Underpayment of 152 Workers",
-      summary: "The case highlights risks around flat rates, junior workers, and award compliance.",
-      image: "assets/news-chatime.jpg",
-      link: "news.html#chatime"
-    },
-    {
-      category: "Workforce Planning",
-      date: "14/02/2025",
-      title: "Empowering Internal Mobility in the Age of AI",
-      summary: "HR leaders are urged to support reskilling, redeployment, and internal career pathways.",
-      image: "assets/news-mobility.jpg",
-      link: "news.html#internal-mobility"
-    },
-    {
-      category: "Employment Law",
-      date: "12/08/2025",
-      title: "FWC Rejects Unfair Dismissal Claim Over Labour Hire Transition",
-      summary: "The ruling clarifies employment continuity when workers move from labour hire to direct employment.",
-      image: "assets/news-fwc.jpg",
-      link: "news.html#fwc-labour-hire"
-    },
-    {
-      category: "Payroll Systems",
-      date: "24/06/2025",
-      title: "Scaling Payroll and HR With Smarter Workforce Platforms",
-      summary: "Modern HR systems can reduce manual work and improve compliance visibility.",
-      image: "assets/news-systems.jpg",
-      link: "news.html#payroll-systems"
-    },
-    {
-      category: "Compliance",
-      date: "25/09/2025",
-      title: "Lessons for Payroll Teams From Major Australian Underpayment Cases",
-      summary: "Recent cases show why payroll governance, audits, and documentation matter.",
-      image: "assets/news-compliance.jpg",
-      link: "news.html#payroll-lessons"
-    }
-  ];
+const newsItems = [
+  {
+    category: "Governance",
+    date: "25/09/2025",
+    title: "Woolworths and Coles Underpayments Could Top $1 Billion — A Wake-Up Call for Payroll Governance",
+    summary: "FWO probes continue as annualised salary models failed to reconcile actual hours worked.",
+    image: "assets/news-woolworths.jpg",
+    link: "news.html#woolworths-coles"
+  },
+  {
+    category: "Industry News",
+    date: "25/09/2025",
+    title: "ANZ Payroll Email Blunder Sparks Industry-Wide Concern Over Redundancy Communications",
+    summary: "Automated emails prematurely informed staff of termination before formal communication.",
+    image: "assets/news-anz.jpg",
+    link: "news.html#anz-email"
+  },
+  {
+    category: "Legislation",
+    date: "14/09/2025",
+    title: "Australia’s “Right to Disconnect” Expands to Small Business Employees",
+    summary: "Small business employees gain the legal right to refuse unreasonable after-hours contact.",
+    image: "assets/news-disconnect.jpg",
+    link: "news.html#right-to-disconnect"
+  },
+  {
+    category: "Industrial Relations",
+    date: "14/08/2025",
+    title: "Qantas Fined $90 Million for Unlawful Outsourcing of 1,820 Workers",
+    summary: "The Federal Court issued a record penalty after unlawful outsourcing during the pandemic.",
+    image: "assets/news-qantas.jpg",
+    link: "news.html#qantas"
+  },
+  {
+    category: "Payroll Compliance",
+    date: "25/07/2025",
+    title: "Superannuation Guarantee Rises to 12%: What It Means for Payroll Teams",
+    summary: "Payroll teams must apply the new 12% SG rate from July 2025 payment dates.",
+    image: "assets/news-super.jpg",
+    link: "news.html#superannuation"
+  },
+  {
+    category: "HR Technology",
+    date: "24/06/2025",
+    title: "Hungry Jack’s HR Transformation: From Spreadsheets to 24-Hour Hiring",
+    summary: "A digital HR platform helped reduce hiring time from weeks to 24 hours.",
+    image: "assets/news-hungryjacks.jpg",
+    link: "news.html#hungry-jacks"
+  },
+  {
+    category: "AI and Work",
+    date: "20/05/2025",
+    title: "AI and Employment: David Sacks Challenges the Doomsday Narrative",
+    summary: "AI may replace parts of jobs, but workers who use AI well may gain an advantage.",
+    image: "assets/news-ai.jpg",
+    link: "news.html#ai-employment"
+  },
+  {
+    category: "Underpayment",
+    date: "04/04/2025",
+    title: "Chatime Australia Penalised for Systemic Underpayment of 152 Workers",
+    summary: "The case highlights risks around flat rates, junior workers, and award compliance.",
+    image: "assets/news-chatime.jpg",
+    link: "news.html#chatime"
+  },
+  {
+    category: "Workforce Planning",
+    date: "14/02/2025",
+    title: "Empowering Internal Mobility in the Age of AI",
+    summary: "HR leaders are urged to support reskilling, redeployment, and internal career pathways.",
+    image: "assets/news-mobility.jpg",
+    link: "news.html#internal-mobility"
+  },
+  {
+    category: "Employment Law",
+    date: "12/08/2025",
+    title: "FWC Rejects Unfair Dismissal Claim Over Labour Hire Transition",
+    summary: "The ruling clarifies employment continuity when workers move from labour hire to direct employment.",
+    image: "assets/news-fwc.jpg",
+    link: "news.html#fwc-labour-hire"
+  }
+];
 
   let currentNewsPage = 1;
   const itemsPerPage = 3;
