@@ -623,35 +623,36 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   }
 }
 
-/* ===== About Team Section ===== */
+/* ===== About Team Section (FINAL CLEAN VERSION) ===== */
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 420px);
-  justify-content: start;
+  justify-content: center;
   gap: 32px;
   margin-top: 24px;
 }
 
+.team-card {
+  text-align: center;
+}
+
+/* IMAGE FRAME */
 .team-image {
-  width: 100%;              /* fill card again */
+  width: 100%;
   border-radius: 16px;
   overflow: hidden;
   background: #f1f5f9;
   margin-bottom: 18px;
 }
 
-.team-card img {
+/* IMAGE */
+.team-image img {
   width: 100%;
-  height: 430px;
-  object-fit: cover;
-  object-position: center 28%;
+  height: 380px;                 /* balanced height */
+  object-fit: cover;             /* fills frame cleanly */
+  object-position: center 20%;   /* keeps face centered */
   display: block;
-
-  border-radius: 12px;
-  margin-bottom: 18px;
-  padding: 0;
-  background: transparent;
 }
 
 .team-card h3 {
