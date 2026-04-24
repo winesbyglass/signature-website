@@ -845,3 +845,17 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   background: #f0f0f0;
   text-decoration: none;
 }
+
+/* ===== Active Contact Button ===== */
+
+.btn-primary.is-active {
+  background: #ffffff;
+  color: #1e3a8a;              /* match your brand blue */
+  border: 2px solid #ffffff;
+  cursor: default;
+}
+
+.btn-primary.is-active:hover {
+  background: #ffffff;
+  color: #1e3a8a;
+}
