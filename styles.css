@@ -646,15 +646,15 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 
 .team-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: center 20%;
-
-  image-rendering: auto;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  height: auto;              /* keeps full image */
+  max-height: 420px;         /* prevents giant images */
+  object-fit: contain;       /* shows full photo */
+  display: block;
 
   border-radius: 12px;
+  background: #f1f5f9;       /* subtle frame fill */
+  padding: 10px;             /* gives breathing room */
+  margin-bottom: 18px;
 }
 
 .team-card h3 {
