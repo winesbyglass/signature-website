@@ -524,3 +524,26 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   color: #9ca3af; /* lighter grey */
   margin: 0;
 }
+
+/* ===== Partners Logos ===== */
+
+.partners-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 34px 54px;
+  align-items: center;
+  justify-items: center;
+  margin-top: 24px;
+}
+
+.partners-logos img {
+  max-width: 150px;
+  max-height: 76px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .partners-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
