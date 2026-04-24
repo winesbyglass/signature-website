@@ -482,3 +482,39 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 .news-page-button.muted {
   background: #666666;
 }
+
+/* ===== Footer ===== */
+
+.site-footer {
+  background: #0D3DA6;
+  color: #ffffff;
+  margin-top: 60px;
+}
+
+.footer-inner {
+  text-align: center;
+  padding: 28px 0;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 12px;
+}
+
+.footer-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
