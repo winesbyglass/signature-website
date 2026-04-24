@@ -675,3 +675,38 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Careers Page ===== */
+
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.career-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(15,23,42,.08);
+}
+
+.career-card h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.career-card p {
+  margin: 0;
+  color: #334155;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+@media (max-width: 920px) {
+  .careers-grid {
+    grid-template-columns: 1fr;
+  }
+}
