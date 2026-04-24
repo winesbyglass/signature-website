@@ -319,7 +319,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .nav{ display:none; }
 }
 
-/* ===== FINAL HEADER FIX ===== */
+/* ===== FINAL HEADER + LOGO FIX (LOCKED LAYOUT) ===== */
 
 .site-header {
   background: #0D3DA6;
@@ -327,6 +327,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   overflow: visible;
 }
 
+/* keep header height fixed */
 .site-header .header-inner {
   display: flex;
   align-items: center;
@@ -335,19 +336,25 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   padding: 0;
 }
 
-/* Logo is bigger, but does NOT increase header height */
-.brand {
-  height: 100px;
-  display: flex;
-  align-items: center;
+/* align header with body text */
+.site-header .container {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
+/* LOGO — slightly smaller but visually larger */
 .logo {
-  height: 180px;
+  height: 135px; /* ~0.9x */
   width: auto;
   display: block;
-  transform: scale(1.25);
+
+  /* this makes logo bigger WITHOUT increasing header height */
+  transform: scale(1.2);
   transform-origin: left center;
+
+  /* vertically center inside fixed header */
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 
 /* NAV */
