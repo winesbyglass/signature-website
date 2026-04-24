@@ -544,3 +544,15 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   object-fit: contain;
   display: block;
 }
+
+.news-page-button:disabled {
+  background: #777777;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.news-page-button:disabled:hover {
+  background: #777777;
+  transform: none;
+}
