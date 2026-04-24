@@ -77,7 +77,6 @@
 <section class="section news-section">
   <div class="container">
     <h2 class="h2">Latest Industry News</h2>
-
     <div class="news-grid" id="newsGrid"></div>
 
     <div class="news-pagination">
@@ -88,89 +87,416 @@
   </div>
 </section>
 
-<script>
-const newsItems = [
-  {
-    category: "Governance",
-    date: "25/09/2025",
-    title: "Woolworths and Coles Underpayments Could Top $1 Billion — A Wake-Up Call for Payroll Governance",
-    summary: "FWO probes continue as annualised salary models failed to reconcile actual hours worked.",
-    image: "assets/news-woolworths.jpg",
-    link: "news.html#woolworths-coles"
-  },
-  {
-    category: "Industry News",
-    date: "25/09/2025",
-    title: "ANZ Payroll Email Blunder Sparks Industry-Wide Concern Over Redundancy Communications",
-    summary: "Automated emails prematurely informed staff of termination before formal communication.",
-    image: "assets/news-anz.jpg",
-    link: "news.html#anz-email"
-  },
-  {
-    category: "Legislation",
-    date: "14/09/2025",
-    title: "Australia’s “Right to Disconnect” Expands to Small Business Employees",
-    summary: "Small business employees gain the legal right to refuse unreasonable after-hours contact.",
-    image: "assets/news-disconnect.jpg",
-    link: "news.html#right-to-disconnect"
-  },
-  {
-    category: "Industrial Relations",
-    date: "14/08/2025",
-    title: "Qantas Fined $90 Million for Unlawful Outsourcing of 1,820 Workers",
-    summary: "The Federal Court issued a record penalty after unlawful outsourcing during the pandemic.",
-    image: "assets/news-qantas.jpg",
-    link: "news.html#qantas"
-  },
-  {
-    category: "Payroll Compliance",
-    date: "25/07/2025",
-    title: "Superannuation Guarantee Rises to 12%: What It Means for Payroll Teams",
-    summary: "Payroll teams must apply the new 12% SG rate from July 2025 payment dates.",
-    image: "assets/news-super.jpg",
-    link: "news.html#superannuation"
-  },
-  {
-    category: "HR Technology",
-    date: "24/06/2025",
-    title: "Hungry Jack’s HR Transformation: From Spreadsheets to 24-Hour Hiring",
-    summary: "A digital HR platform helped reduce hiring time from weeks to 24 hours.",
-    image: "assets/news-hungryjacks.jpg",
-    link: "news.html#hungry-jacks"
-  },
-  {
-    category: "AI and Work",
-    date: "20/05/2025",
-    title: "AI and Employment: David Sacks Challenges the Doomsday Narrative",
-    summary: "AI may replace parts of jobs, but workers who use AI well may gain an advantage.",
-    image: "assets/news-ai.jpg",
-    link: "news.html#ai-employment"
-  },
-  {
-    category: "Underpayment",
-    date: "04/04/2025",
-    title: "Chatime Australia Penalised for Systemic Underpayment of 152 Workers",
-    summary: "The case highlights risks around flat rates, junior workers, and award compliance.",
-    image: "assets/news-chatime.jpg",
-    link: "news.html#chatime"
-  },
-  {
-    category: "Workforce Planning",
-    date: "14/02/2025",
-    title: "Empowering Internal Mobility in the Age of AI",
-    summary: "HR leaders are urged to support reskilling, redeployment, and internal career pathways.",
-    image: "assets/news-mobility.jpg",
-    link: "news.html#internal-mobility"
-  },
-  {
-    category: "Employment Law",
-    date: "12/08/2025",
-    title: "FWC Rejects Unfair Dismissal Claim Over Labour Hire Transition",
-    summary: "The ruling clarifies employment continuity when workers move from labour hire to direct employment.",
-    image: "assets/news-fwc.jpg",
-    link: "news.html#fwc-labour-hire"
+<div id="newsModal" class="news-modal">
+  <div class="news-modal-content">
+    <button class="news-modal-close" id="closeNewsModal">&times;</button>
+    <p class="news-modal-meta" id="modalMeta"></p>
+    <h2 id="modalTitle"></h2>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<style>
+  .news-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.68);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 24px;
   }
-];
+
+  .news-modal.is-open {
+    display: flex;
+  }
+
+  .news-modal-content {
+    background: #ffffff;
+    color: #0f172a;
+    width: min(840px, 100%);
+    max-height: 82vh;
+    overflow-y: auto;
+    border-radius: 18px;
+    padding: 34px;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.32);
+  }
+
+  .news-modal-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    border: 0;
+    background: #ffffff;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    color: #475569;
+    z-index: 2;
+  }
+
+  .news-modal-close:hover {
+    color: #0D3DA6;
+  }
+
+  .news-modal-meta {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+
+  .news-modal-content h2 {
+    margin: 0 0 18px;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .news-modal-content h3 {
+    margin: 24px 0 8px;
+    font-size: 20px;
+  }
+
+  .news-modal-content p,
+  .news-modal-content li {
+    color: #334155;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .news-modal-content ul {
+    padding-left: 22px;
+  }
+</style>
+
+<script>
+  const newsItems = [
+    {
+      category: "Governance",
+      date: "25/09/2025",
+      title: "Woolworths and Coles Underpayments Could Top $1 Billion — A Wake-Up Call for Payroll Governance",
+      summary: "FWO probes continue as annualised salary models failed to reconcile actual hours worked.",
+      image: "assets/news-woolworths.jpg",
+      body: `
+        <p><strong>Published:</strong> Sep 25, 2025</p>
+        <p><strong>Category:</strong> Payroll News & Compliance</p>
+        <p>Australia’s largest supermarket chains — Woolworths and Coles — are facing mounting scrutiny over widespread wage underpayments, with potential liabilities now estimated to exceed $1 billion. The Fair Work Ombudsman has confirmed ongoing investigations into both companies, following years of systemic payroll breaches that have affected thousands of salaried employees.</p>
+
+        <h3>Woolworths: A Deepening Compliance Crisis</h3>
+        <p>Woolworths first disclosed underpayments in 2019, admitting it had failed to correctly compensate salaried staff under the General Retail Industry Award. The issue stemmed from annualised salary arrangements that did not reconcile actual hours worked, particularly for store managers and team leaders regularly clocking overtime.</p>
+        <ul>
+          <li>Initial estimates placed the shortfall at over $300 million.</li>
+          <li>The company has since expanded its review to include distribution centres and other business units.</li>
+          <li>Woolworths has committed to backpaying affected staff and improving payroll systems, but reputational damage and regulatory pressure continue to escalate.</li>
+        </ul>
+
+        <h3>Coles: Following a Similar Pattern</h3>
+        <p>Coles launched its own review in response to Woolworths’ disclosures, uncovering similar issues with salaried employees.</p>
+        <ul>
+          <li>The company has acknowledged potential non-compliance and is working with external auditors.</li>
+          <li>Early findings suggest underpayments may also be substantial, though final figures are yet to be confirmed.</li>
+          <li>Like Woolworths, Coles relied on annualised salary models that failed to account for actual hours worked under award conditions.</li>
+        </ul>
+
+        <h3>Industry-Wide Implications</h3>
+        <p>The scale of these underpayments has triggered broader concerns across the retail and payroll sectors. The Fair Work Ombudsman has signalled increased enforcement activity, and unions have called for stronger protections and transparency.</p>
+        <p>For payroll teams, this case highlights critical vulnerabilities in timekeeping accuracy, award interpretation, internal audits, payroll governance, documentation, and defensibility under Fair Work scrutiny.</p>
+        <p>Businesses operating under complex awards or enterprise agreements must act now to review their payroll frameworks, ensure compliance, and reduce reputational and financial risk.</p>
+      `
+    },
+    {
+      category: "Industry News",
+      date: "25/09/2025",
+      title: "ANZ Payroll Email Blunder Sparks Industry-Wide Concern Over Redundancy Communications",
+      summary: "Automated emails prematurely informed staff of termination before formal communication.",
+      image: "assets/news-anz.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> September 25, 2025</p>
+        <p>In late August 2025, ANZ Bank faced intense scrutiny after an automated email mistakenly informed several employees of their termination before any formal communication had taken place. The incident, which affected senior staff in retail banking, raised serious questions about the role of automation in sensitive HR processes and the importance of respectful redundancy communication.</p>
+
+        <h3>What Happened?</h3>
+        <p>On Wednesday, August 27, ANZ employees received automated emails indicating an “exit date” and instructions for returning company equipment. These messages were intended to follow formal redundancy meetings but were instead triggered prematurely due to a system error.</p>
+        <p>The bank quickly acknowledged the mistake and apologised to impacted staff.</p>
+
+        <h3>CEO Response and Internal Review</h3>
+        <p>ANZ CEO Nuno Matos described the incident as indefensible and deeply disappointing. In internal emails reported by Reuters, Matos emphasised the need to improve non-financial risk management and pledged to investigate the root cause urgently.</p>
+        <p>The incident came amid a broader strategic review of ANZ’s operations, with final recommendations expected in October.</p>
+
+        <h3>Union Reaction</h3>
+        <p>The Finance Sector Union condemned the mishap, calling it a distressing way for workers to learn about job cuts. The union requested an urgent briefing from ANZ and urged the bank to prioritise respectful consultation.</p>
+
+        <h3>Industry Implications</h3>
+        <p>This incident has sparked broader conversations across the payroll and HR community about the risks of automation in redundancy processes. While digital tools can streamline operations, they must be carefully managed to avoid undermining employee dignity and trust.</p>
+        <ul>
+          <li>System safeguards must be in place to prevent premature or erroneous communications.</li>
+          <li>Human oversight remains critical when delivering sensitive employment decisions.</li>
+          <li>Clear redundancy and restructuring protocols should be reviewed regularly to ensure compliance and compassion.</li>
+        </ul>
+      `
+    },
+    {
+      category: "Legislation",
+      date: "14/09/2025",
+      title: "Australia’s “Right to Disconnect” Expands to Small Business Employees",
+      summary: "Small business employees gain the legal right to refuse unreasonable after-hours contact.",
+      image: "assets/news-disconnect.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> September 14, 2025</p>
+        <p>Starting 26 August 2025, employees of small businesses across Australia, defined as those with fewer than 15 staff, will officially gain the legal “Right to Disconnect.” This marks a significant expansion of workplace protections under the Fair Work Act, following its initial rollout to medium and large businesses in 2024.</p>
+
+        <h3>What Is the Right to Disconnect?</h3>
+        <p>The Right to Disconnect empowers employees to refuse work-related contact, such as emails, texts, or calls, outside their designated working hours unless the refusal is unreasonable. This includes contact from employers or third parties like clients.</p>
+        <p>The law aims to restore boundaries between work and personal life in an era of constant connectivity.</p>
+
+        <h3>What Counts as “Unreasonable” Refusal?</h3>
+        <p>Whether a refusal is unreasonable depends on several factors:</p>
+        <ul>
+          <li>The urgency and nature of the contact.</li>
+          <li>The employee’s role and level of responsibility.</li>
+          <li>Personal circumstances such as caring duties.</li>
+          <li>Whether the employee is compensated for after-hours availability.</li>
+          <li>How disruptive the contact is.</li>
+        </ul>
+
+        <h3>What Employers and Employees Should Do</h3>
+        <ul>
+          <li>Discuss expectations around out-of-hours contact.</li>
+          <li>Review employment contracts and compensation arrangements.</li>
+          <li>Establish clear communication protocols.</li>
+          <li>Use Fair Work resources, including webinars and multilingual video guides.</li>
+        </ul>
+
+        <h3>Bonus Reform: Casual Employee Pathway</h3>
+        <p>Also effective 26 August 2025, eligible casual employees in small businesses can formally request to convert to full-time or part-time roles. Employers must respond and may only refuse under specific conditions.</p>
+      `
+    },
+    {
+      category: "Industrial Relations",
+      date: "14/08/2025",
+      title: "Qantas Fined $90 Million for Unlawful Outsourcing of 1,820 Workers",
+      summary: "The Federal Court issued a record penalty after unlawful outsourcing during the pandemic.",
+      image: "assets/news-qantas.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> August 14, 2025</p>
+        <p>Australia’s largest airline, Qantas, has been fined a record-breaking USD $90 million by the Federal Court for unlawfully outsourcing 1,820 ground handling staff during the COVID-19 pandemic. The decision marks the largest penalty ever imposed under Australian industrial relations law.</p>
+
+        <h3>Background: Outsourcing During the Pandemic</h3>
+        <p>In November 2020, Qantas announced it would outsource ground handling operations at ten major airports, citing cost-saving measures amid pandemic disruptions. The move led to the dismissal of nearly 1,820 employees, including baggage handlers, cleaners, and ramp workers.</p>
+        <p>The Transport Workers Union challenged the decision, arguing it was designed to undermine workers’ rights to engage in protected industrial action and collective bargaining. The Federal Court later ruled the outsourcing was unlawful under the Fair Work Act.</p>
+
+        <h3>Court Ruling and Penalty Breakdown</h3>
+        <ul>
+          <li>$50 million will be paid directly to the TWU.</li>
+          <li>$40 million will be allocated following a future hearing, potentially to the workers themselves.</li>
+          <li>Separately, Qantas has already paid $120 million into a compensation fund administered by Maurice Blackburn Lawyers.</li>
+        </ul>
+
+        <h3>Implications for Employers</h3>
+        <p>The ruling sends a strong message to Australian employers. Breaches of the Fair Work Act can result in substantial financial consequences. Corporate strategies designed to suppress union activity or avoid bargaining rights will not be tolerated.</p>
+        <p>The TWU described the outcome as a landmark victory for workers’ rights and industrial fairness. Qantas has accepted the court’s decision and stated its commitment to resolving the matter and supporting affected staff.</p>
+      `
+    },
+    {
+      category: "Payroll Compliance",
+      date: "25/07/2025",
+      title: "Superannuation Guarantee Rises to 12%: What It Means for Payroll Teams",
+      summary: "Payroll teams must apply the new 12% SG rate from July 2025 payment dates.",
+      image: "assets/news-super.jpg",
+      body: `
+        <p><strong>Published:</strong> July 25, 2025</p>
+        <p><strong>Category:</strong> Payroll News & Compliance</p>
+        <p>Australia’s final legislated increase to the Superannuation Guarantee rate took effect on July 1, 2025, lifting the mandatory employer contribution from 11.5% to 12%. This change marks a significant milestone in the nation’s retirement savings framework and a critical compliance checkpoint for payroll professionals.</p>
+
+        <h3>Key Change: SG Rate Now 12%</h3>
+        <p>From July 1, 2025, all salary and wages paid to eligible employees must include super contributions calculated at 12%, regardless of when the work was performed. The SG rate is determined by the payment date, not the work period.</p>
+
+        <h3>Why It Matters</h3>
+        <ul>
+          <li>Employees’ retirement savings will grow faster under the higher rate.</li>
+          <li>Employers must ensure payroll systems are updated to avoid underpayment risks.</li>
+          <li>HR and finance teams must recalculate gross pay, update payroll software, and verify contribution accuracy.</li>
+        </ul>
+
+        <h3>Compliance Risks</h3>
+        <p>Failing to apply the correct SG rate can result in penalties from the ATO, reputational damage, and additional administrative burden to correct errors.</p>
+
+        <h3>Broader Superannuation Updates</h3>
+        <ul>
+          <li>Transfer Balance Cap increased to $2 million.</li>
+          <li>Maximum super contribution base lowered to $62,500 per quarter.</li>
+          <li>Retirement age eligibility gradually rising to 70 by 2029.</li>
+          <li>Adjustments to tax deduction rules for voluntary contributions.</li>
+        </ul>
+
+        <h3>What Payroll Teams Should Do</h3>
+        <ul>
+          <li>Update payroll systems to reflect the 12% SG rate.</li>
+          <li>Review pay schedules and ensure contributions align with payment dates.</li>
+          <li>Communicate changes clearly to employees.</li>
+          <li>Monitor contribution caps and compliance thresholds.</li>
+          <li>Stay informed on evolving superannuation policies.</li>
+        </ul>
+      `
+    },
+    {
+      category: "HR Technology",
+      date: "24/06/2025",
+      title: "Hungry Jack’s HR Transformation: From Spreadsheets to 24-Hour Hiring",
+      summary: "A digital HR platform helped reduce hiring time from weeks to 24 hours.",
+      image: "assets/news-hungryjacks.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> June 24, 2025</p>
+        <p>Hungry Jack’s, one of Australia’s largest fast-food chains, has undergone a dramatic transformation in workforce management, shifting from outdated spreadsheets to a fully digital HR platform that enables hiring within 24 hours.</p>
+
+        <h3>From Admin Overload to Agile Recruitment</h3>
+        <p>Until mid-2024, Hungry Jack’s relied on manual spreadsheets to manage its 30,000 employees across 450 restaurants. This system created bottlenecks in recruitment, onboarding, and career development.</p>
+        <p>Within 12 months, Hungry Jack’s reduced its hiring time from three to four weeks to just 24 hours. Weekly job applications surged by 300%, exceeding 10,000 submissions.</p>
+
+        <h3>Phase Two: Scaling with Intelligence</h3>
+        <p>The second phase of the Workday rollout introduces advanced modules for compensation, talent management, employee surveys, and performance reviews. These upgrades will be managed within one platform, giving Hungry Jack’s a single source of truth for employee data.</p>
+
+        <h3>Meet Jacki: The First AI Crew Member</h3>
+        <p>In May, Hungry Jack’s welcomed its first AI team member, Jacki, to support HR operations. The company sees AI as a strategic asset to streamline processes and improve employee experience.</p>
+
+        <h3>Empowering Staff with Career Visibility</h3>
+        <p>Crew members as young as 17 can now view potential career paths, from restaurant manager to corporate roles, directly from their mobile devices. This is designed to support retention by helping people see what comes next.</p>
+
+        <h3>Strategic ROI and Leadership Buy-In</h3>
+        <p>By integrating recruitment, onboarding, and development into one platform, Hungry Jack’s has positioned itself for sustainable growth and operational excellence.</p>
+      `
+    },
+    {
+      category: "AI and Work",
+      date: "20/05/2025",
+      title: "AI and Employment: David Sacks Challenges the Doomsday Narrative",
+      summary: "AI may replace parts of jobs, but workers who use AI well may gain an advantage.",
+      image: "assets/news-ai.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> May 20, 2025</p>
+        <p>David Sacks, the White House’s newly appointed AI and crypto czar, has sparked debate with his optimistic stance on artificial intelligence and its impact on employment. Speaking at the Amazon Web Services Summit in Washington, D.C., Sacks argued that fears of mass unemployment due to AI are overstated.</p>
+        <p>Sacks said it is hard to replace a human job entirely and easier to replace pieces of it. He argued workers are more likely to lose their jobs to someone who understands and uses AI effectively, rather than to AI itself.</p>
+
+        <h3>Contrasting Views: The Risk of Job Loss</h3>
+        <p>Other experts remain cautious. Dario Amodei, CEO of Anthropic, warned that AI could eliminate half of all entry-level white-collar jobs and push unemployment rates up to 20% within five years. Sacks rejected this projection and said he does not expect 20% unemployment.</p>
+
+        <h3>Agentic AI: A New Frontier</h3>
+        <p>Sacks highlighted the rise of agentic AI, systems that can take actions on behalf of users, as a key development. These agents will operate under human guidance and serve to increase productivity.</p>
+
+        <h3>Implications for HR and Payroll Professionals</h3>
+        <p>For HR and payroll professionals, the message is clear: understanding and integrating AI tools is no longer optional. Those who embrace AI will be better positioned to thrive in the evolving workplace. This shift underscores the importance of upskilling and continuous learning.</p>
+      `
+    },
+    {
+      category: "Underpayment",
+      date: "04/04/2025",
+      title: "Chatime Australia Penalised for Systemic Underpayment of 152 Workers",
+      summary: "The case highlights risks around flat rates, junior workers, and award compliance.",
+      image: "assets/news-chatime.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> April 4, 2025</p>
+        <p>Chatime Australia Pty Ltd and its managing director Chen ‘Charlley’ Zhao have been penalised a total of $132,840 following a Federal Circuit and Family Court ruling that found the company had underpaid 152 employees across 19 bubble tea outlets in Sydney and Melbourne.</p>
+        <p>The breaches occurred between August and December 2016, when Chatime paid flat hourly rates as low as $7.59, well below the legal minimum under the Fast Food Industry Award 2010.</p>
+
+        <h3>Key Details</h3>
+        <ul>
+          <li>Underpaid wages: $162,533.</li>
+          <li>Number of affected employees: 152.</li>
+          <li>41 junior workers under 21.</li>
+          <li>95 visa holders, mostly international students.</li>
+          <li>$120,960 penalty against Chatime Australia Pty Ltd.</li>
+          <li>$11,880 penalty against managing director Chen Zhao.</li>
+        </ul>
+
+        <h3>Fair Work Inspectors Found Employees Were Denied</h3>
+        <ul>
+          <li>Ordinary hourly rates.</li>
+          <li>Casual loadings.</li>
+          <li>Penalty rates for weekends, nights, and public holidays.</li>
+          <li>Overtime pay.</li>
+          <li>Annual leave entitlements.</li>
+          <li>Minimum engagement pay.</li>
+        </ul>
+
+        <h3>Locations Involved</h3>
+        <p>Underpayments occurred across Sydney outlets including Bondi Junction, Chatswood, Wetherill Park, and the CBD, as well as Melbourne outlets including Dandenong, Doncaster, Glen Waverley, Cheltenham, and the CBD.</p>
+
+        <h3>What Payroll Professionals and Small Businesses Should Learn</h3>
+        <ul>
+          <li>Award compliance is essential.</li>
+          <li>Flat-rate pay models are risky.</li>
+          <li>Directors can be held personally liable.</li>
+          <li>Transparent systems and audits matter.</li>
+          <li>Staff and franchisees must be trained in Fair Work obligations.</li>
+        </ul>
+
+        <p>Wage compliance is not optional. This ruling reinforces the importance of robust payroll governance, especially when vulnerable workers are involved.</p>
+      `
+    },
+    {
+      category: "Workforce Planning",
+      date: "14/02/2025",
+      title: "Empowering Internal Mobility in the Age of AI",
+      summary: "HR leaders are urged to support reskilling, redeployment, and internal career pathways.",
+      image: "assets/news-mobility.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> February 14, 2025</p>
+        <p>As artificial intelligence continues to reshape the workplace, HR leaders are being called to rethink how they support internal mobility and workforce development. Signature Payroll Services highlights key strategies from LHH’s Asia-Pacific Managing Director, James McIlvena, on navigating talent transitions in an AI-driven era.</p>
+
+        <h3>AI’s Impact on Workforce Planning</h3>
+        <p>According to LHH’s report, while only 12% of candidates cite AI as a reason for leaving their roles, nearly half of business leaders have already reduced headcount due to AI adoption. McIlvena stresses that employers must proactively support employees through transitions, not just with reskilling but with strategic redeployment.</p>
+
+        <h3>Why Internal Mobility Matters More Than Ever</h3>
+        <p>McIlvena advocates for reducing unnecessary redundancies by improving internal career pathways. Losing long-term employees can disrupt operations and erode institutional knowledge.</p>
+
+        <h3>Three Immediate Actions for HR Leaders</h3>
+        <ul>
+          <li>Bridge AI skill gaps with clear guidance and choices.</li>
+          <li>Combine technology with human-centric leadership.</li>
+          <li>Design for mobility first to reduce layoffs and support redeployment.</li>
+        </ul>
+
+        <h3>Rethinking Recruitment in the AI Era</h3>
+        <p>AI is now embedded in both candidate applications and employer evaluations. Companies should build cultures of confidence, collaboration, and connection. Upskilling is not only about preparing for the next role. It is about building a workforce ready to seize future opportunities.</p>
+      `
+    },
+    {
+      category: "Employment Law",
+      date: "12/08/2025",
+      title: "FWC Rejects Unfair Dismissal Claim Over Labour Hire Transition",
+      summary: "The ruling clarifies employment continuity when workers move from labour hire to direct employment.",
+      image: "assets/news-fwc.jpg",
+      body: `
+        <p><strong>Signature Payroll Services Pty Ltd</strong></p>
+        <p><strong>Published:</strong> August 12, 2025</p>
+        <p>A recent Fair Work Commission ruling has clarified the legal boundaries of employment continuity in labour hire arrangements, rejecting a worker’s claim for unfair dismissal after transitioning from labour hire to permanent employment.</p>
+
+        <h3>Background: Labour Hire to Direct Employment</h3>
+        <p>The worker was initially employed by a labour hire company from January 2023 and placed at an environmental services firm operating a sludge treatment plant in the Cooper Basin. In May 2024, after repeated requests, the host company agreed to hire him directly. He began full-time employment on 20 May 2024.</p>
+        <p>By late June, the host company’s industrial services contract was set to end. On 4 July 2024, the worker was offered a casual role. When he declined, his employment was terminated on 5 July 2024 due to redundancy.</p>
+
+        <h3>The Dispute</h3>
+        <p>The worker argued that his employment was continuous across both labour hire and direct employment, and that the offer of a casual role showed his position was still required. The host company argued that he had not met the minimum six-month employment period required under the Fair Work Act 2009.</p>
+
+        <h3>FWC Findings: No Continuity, No Protection</h3>
+        <p>The FWC found no evidence of a formal relationship or transfer between the labour hire firm and the host company. The worker’s employment with the host company lasted less than seven weeks, well short of the six-month threshold.</p>
+
+        <h3>Implications for Employers and Workers</h3>
+        <ul>
+          <li>Document employment transitions carefully.</li>
+          <li>Clarify the nature of any offers made during redundancy processes.</li>
+          <li>Ensure compliance with Fair Work Act provisions when managing workforce changes.</li>
+        </ul>
+      `
+    }
+  ];
 
   let currentNewsPage = 1;
   const itemsPerPage = 3;
@@ -185,8 +511,8 @@ const newsItems = [
     const start = (currentNewsPage - 1) * itemsPerPage;
     const visibleItems = newsItems.slice(start, start + itemsPerPage);
 
-    newsGrid.innerHTML = visibleItems.map(item => `
-      <a class="news-card" href="${item.link}" style="background-image: url('${item.image}');">
+    newsGrid.innerHTML = visibleItems.map((item, index) => `
+      <button class="news-card" onclick="openNewsModal(${start + index})" style="background-image: url('${item.image}');">
         <div class="news-overlay">
           <div class="news-meta">
             <span>${item.category}</span>
@@ -195,14 +521,31 @@ const newsItems = [
           <h3>${item.title}</h3>
           <p>${item.summary}</p>
         </div>
-      </a>
+      </button>
     `).join("");
 
     pageText.textContent = `Page ${currentNewsPage} of ${totalNewsPages}`;
-
     prevButton.disabled = currentNewsPage === 1;
     nextButton.disabled = currentNewsPage === totalNewsPages;
   }
+
+  function openNewsModal(index) {
+    const item = newsItems[index];
+    document.getElementById("modalMeta").textContent = `${item.category} • ${item.date}`;
+    document.getElementById("modalTitle").textContent = item.title;
+    document.getElementById("modalBody").innerHTML = item.body;
+    document.getElementById("newsModal").classList.add("is-open");
+  }
+
+  document.getElementById("closeNewsModal").addEventListener("click", function () {
+    document.getElementById("newsModal").classList.remove("is-open");
+  });
+
+  document.getElementById("newsModal").addEventListener("click", function (event) {
+    if (event.target.id === "newsModal") {
+      document.getElementById("newsModal").classList.remove("is-open");
+    }
+  });
 
   document.getElementById("prevNews").addEventListener("click", function () {
     if (currentNewsPage > 1) {
