@@ -640,13 +640,21 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   box-shadow: 0 10px 30px rgba(15,23,42,.08);
 }
 
+.team-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .team-card img {
   width: 100%;
-  height: 230px;
-  object-fit: cover;
-  object-position: top; /* THIS FIXES IT */
+  height: 260px;              /* fixed height for alignment */
+  object-fit: contain;        /* show full image */
+  object-position: center top;
+  background: #f1f5f9;        /* fills empty space */
   border-radius: 12px;
   margin-bottom: 18px;
+  padding: 8px;               /* adds breathing room */
 }
 
 .team-card h3 {
