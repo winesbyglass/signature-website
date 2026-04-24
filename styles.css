@@ -319,29 +319,30 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .nav{ display:none; }
 }
 
-/* ===== FINAL HEADER (LARGER LOGO, TIGHTER MARGINS) ===== */
+/* ===== FINAL HEADER FIX ===== */
 
 .site-header {
   background: #0D3DA6;
-  padding: 0 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .site-header .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: auto; /* IMPORTANT: allow natural height */
-  padding: 10px 0; /* controls top/bottom margin */
+  height: 100px;
+  padding: 0;
 }
 
-/* LOGO — MUCH BIGGER */
 .logo {
-  height: 180px;
+  height: 150px;
   width: auto;
   display: block;
+  margin-top: -25px;
+  margin-bottom: -25px;
 }
 
-/* NAV */
 .site-header .nav {
   gap: 18px;
 }
@@ -354,19 +355,16 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   border-radius: 999px;
 }
 
-/* HOVER */
 .site-header .nav-link:hover {
   background: rgba(255,255,255,0.35);
   color: #ffffff;
 }
 
-/* ACTIVE */
 .site-header .nav-link.is-active {
   background: rgba(255,255,255,0.25);
   color: #ffffff;
 }
 
-/* BUTTON */
 .site-header .btn-primary {
   background: #ffffff;
   color: #0D3DA6;
