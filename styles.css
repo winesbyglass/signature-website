@@ -319,30 +319,31 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .nav{ display:none; }
 }
 
-/* ===== FINAL CLEAN HEADER ===== */
+/* ===== FINAL HEADER (LARGER LOGO, TIGHTER MARGINS) ===== */
 
 .site-header {
   background: #0D3DA6;
-  padding: 0;
+  padding: 0 0;
 }
 
 .site-header .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: auto; /* IMPORTANT: allow natural height */
+  padding: 10px 0; /* controls top/bottom margin */
 }
 
-/* LOGO */
+/* LOGO — MUCH BIGGER */
 .logo {
-  height: 120px;
+  height: 180px;
   width: auto;
   display: block;
 }
 
 /* NAV */
 .site-header .nav {
-  gap: 16px;
+  gap: 18px;
 }
 
 .site-header .nav-link {
