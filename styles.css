@@ -340,13 +340,21 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .nav{ display:none; }
 }
 
-/* ===== PERFECT ALIGNMENT FIX ===== */
+/* ===== CLEAN HEADER ALIGNMENT (FINAL) ===== */
 
-.site-header .container {
-  width: 100%;
-  max-width: 100%;
+.site-header .header-inner {
+  height: 100px;
+  padding: 0;
+}
 
-  /* match body text alignment exactly */
-  padding-left: 24px;
-  padding-right: 24px;
+.logo {
+  height: 135px;
+  width: auto;
+  display: block;
+
+  transform: scale(1.2);
+  transform-origin: left center;
+
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
