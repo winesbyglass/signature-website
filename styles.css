@@ -846,12 +846,16 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   text-decoration: none;
 }
 
-/* ===== Active Contact Button ===== */
+/* ===== Active Contact Button (STRONG VERSION) ===== */
 
 .btn-primary.is-active {
-  background: #ffffff;
-  color: #1e3a8a;              /* match your brand blue */
-  border: 2px solid #ffffff;
+  background: #ffffff;              /* flips to white */
+  color: #1e3a8a;                   /* your brand blue text */
+  border: 2px solid #1e3a8a;        /* visible blue outline */
+
+  box-shadow: 0 0 0 3px rgba(30,58,138,0.15); /* soft glow */
+  font-weight: 600;                 /* slightly stronger text */
+
   cursor: default;
 }
 
