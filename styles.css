@@ -810,3 +810,38 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== OLD STYLE TOOLS BUTTON (FINAL) ===== */
+
+.tools-simple {
+  margin-top: 10px;
+}
+
+.tools-simple h3 {
+  margin: 18px 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* exact old-school button */
+.tools-button {
+  display: inline-block;
+
+  padding: 3px 10px;
+  border: 1px solid #000;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #000;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tools-button:hover {
+  background: #f0f0f0;
+  text-decoration: none;
+}
