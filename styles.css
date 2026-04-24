@@ -644,6 +644,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   width: 100%;
   height: 230px;
   object-fit: cover;
+  object-position: top; /* THIS FIXES IT */
   border-radius: 12px;
   margin-bottom: 18px;
 }
