@@ -889,3 +889,17 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   font-weight: 600;
   cursor: default;
 }
+
+/* ===== Strong Active Contact Button ===== */
+
+.site-header .btn-primary.is-contact-active {
+  background: #0b245f !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.25) !important;
+}
+
+.site-header .btn-primary.is-contact-active:hover {
+  background: #0b245f !important;
+  color: #ffffff !important;
+}
