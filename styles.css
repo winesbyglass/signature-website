@@ -323,7 +323,7 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 
 .site-header {
   background: #0D3DA6;
-  padding: 24px;
+  padding: 18px 0;
 }
 
 .site-header .header-inner {
@@ -333,7 +333,29 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 }
 
 .logo {
-  height: 48px;
+  height: 82px;
   width: auto;
   display: block;
+}
+
+.site-header .nav-link {
+  color: #ffffff;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.is-active {
+  color: #ffffff;
+}
+
+.site-header .nav-link.is-active::after {
+  background: #ffffff;
+}
+
+.site-header .btn-primary {
+  background: #ffffff;
+  color: #0D3DA6;
+}
+
+.site-header .btn-primary:hover {
+  background: #eef3ff;
 }
