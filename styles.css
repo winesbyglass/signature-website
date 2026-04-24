@@ -340,15 +340,13 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .nav{ display:none; }
 }
 
-/* ===== FORCE HEADER FULL WIDTH ALIGNMENT ===== */
+/* ===== PERFECT ALIGNMENT FIX ===== */
 
 .site-header .container {
   width: 100%;
   max-width: 100%;
-  padding-left: 0;
-  padding-right: 24px;
-}
 
-.site-header .header-inner {
+  /* match body text alignment exactly */
   padding-left: 24px;
+  padding-right: 24px;
 }
