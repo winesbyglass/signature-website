@@ -646,12 +646,15 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 
 .team-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;        /* forces clean 4:3 frame */
-  object-fit: cover;          /* fills frame */
-  object-position: center 20%;/* keeps face centered (adjust if needed) */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 20%;
+
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
   border-radius: 12px;
-  margin-bottom: 18px;
-  display: block;
 }
 
 .team-card h3 {
