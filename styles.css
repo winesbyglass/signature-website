@@ -926,46 +926,40 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 }
 
 @media (max-width: 768px) {
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .partner-logo-row,
-  .partners,
-  .logos,
-  .logo-grid,
-  .partner-logos {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
+  * {
     box-sizing: border-box;
   }
 
-  .partner-logo-row a,
-  .partners a,
-  .logos a,
-  .logo-grid a,
-  .partner-logos a {
-    flex: 0 1 42%;
-    max-width: 42%;
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  main,
+  section,
+  .container,
+  .content,
+  .card,
+  .grid {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a:has(img) {
+    max-width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  .partner-logo-row img,
-  .partners img,
-  .logos img,
-  .logo-grid img,
-  .partner-logos img {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+  section:has(img) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
