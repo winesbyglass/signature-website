@@ -959,8 +959,8 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
     display: block !important;
 
     width: auto !important;
-    max-width: 160px !important;
-    max-height: 80px !important;
+    max-width: 220px !important;
+    max-height: 110px !important;
     height: auto !important;
 
     object-fit: contain !important;
