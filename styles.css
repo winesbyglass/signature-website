@@ -924,3 +924,32 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   background: #0b245f !important;
   color: #ffffff !important;
 }
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .logos,
+  .partners,
+  .logo-grid,
+  .partner-logos {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+  }
+
+  .logos img,
+  .partners img,
+  .logo-grid img,
+  .partner-logos img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
