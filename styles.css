@@ -926,38 +926,32 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 }
 
 @media (max-width: 768px) {
-  * {
-    box-sizing: border-box;
+  .partners .brand-strip,
+  .brand-strip {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 18px !important;
+    overflow: visible !important;
   }
 
-  html,
-  body {
-    width: 100%;
-    overflow-x: hidden;
+  .partners .brand-strip a,
+  .brand-strip a {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
-  main,
-  section,
-  .container,
-  .content,
-  .card,
-  .grid {
-    max-width: 100%;
-    overflow-wrap: break-word;
+  .partners .brand-strip img,
+  .brand-strip img {
+    max-width: 130px !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  a:has(img) {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  section:has(img) {
+}
     display: flex;
     flex-direction: column;
     align-items: center;
