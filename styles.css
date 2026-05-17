@@ -928,27 +928,43 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
 @media (max-width: 768px) {
   html,
   body {
-    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
   }
 
-  .logos,
+  .partner-logo-row,
   .partners,
+  .logos,
   .logo-grid,
   .partner-logos {
     width: 100%;
     max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    box-sizing: border-box;
   }
 
-  .logos img,
+  .partner-logo-row a,
+  .partners a,
+  .logos a,
+  .logo-grid a,
+  .partner-logos a {
+    flex: 0 1 42%;
+    max-width: 42%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .partner-logo-row img,
   .partners img,
+  .logos img,
   .logo-grid img,
   .partner-logos img {
     max-width: 100%;
+    width: auto;
     height: auto;
     object-fit: contain;
   }
