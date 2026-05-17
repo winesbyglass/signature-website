@@ -925,50 +925,47 @@ a:hover{ text-decoration:underline; text-underline-offset:4px; }
   color: #ffffff !important;
 }
 
-/* MOBILE: force partner logos into one vertical column */
+/* ===== MOBILE PARTNER LOGOS FIX ===== */
+
 @media (max-width: 768px) {
+
   html,
   body {
+    overflow-x: hidden;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden !important;
   }
 
-  .logo-carousel,
-  .logo-track,
-  .partners-track,
-  .partners-marquee,
-  .partners-slider,
-  .partners-logos,
-  .brand-strip {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .partners-logos {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 28px !important;
 
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 0 !important;
 
-    transform: none !important;
-    animation: none !important;
-    overflow: visible !important;
-    gap: 24px !important;
+    margin-top: 28px !important;
+
+    justify-items: center !important;
+    align-items: center !important;
   }
 
-  .logo-carousel img,
-  .logo-track img,
-  .partners-track img,
-  .partners-marquee img,
-  .partners-slider img,
-  .partners-logos img,
-  .brand-strip img {
+  .partners-logos img {
     display: block !important;
+
     width: auto !important;
-    max-width: 180px !important;
+    max-width: 160px !important;
+    max-height: 80px !important;
     height: auto !important;
-    margin: 0 auto !important;
+
     object-fit: contain !important;
+
+    margin: 0 auto !important;
   }
+
 }
